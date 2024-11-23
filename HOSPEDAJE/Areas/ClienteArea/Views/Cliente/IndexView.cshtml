@@ -1,0 +1,12 @@
+﻿@{
+    Layout = "~/Views/Shared/_HomeTemplate.cshtml";
+    ViewData["Title"] = "Index Cliente";
+}
+
+<h1>
+    @ViewData["Title"]
+</h1>
+
+<partial name="../Component/_Account" />
+
+<a asp-area="UsuarioArea" asp-controller="Usuario" asp-action="LoginView">Login Usuario</a>

@@ -1,0 +1,109 @@
+﻿@using HOSPEDAJE.Areas.UsuarioArea.Payloads.EntidadesDTO
+@model DetalleUsuarioDTO
+
+@{
+    ViewData["Title"] = "Actualizar Datos";
+}
+
+<h1>
+    @ViewData["Title"]
+</h1>
+<form asp-action="ActualizarProceso" method="post" enctype="multipart/form-data">
+    <div>
+        <input type="text" asp-for="Nombre" value="@Model.Nombre" placeholder="Ingresar Nombre" /><br />
+        <span asp-validation-for="Nombre"></span>
+    </div>
+    <div>
+        <input type="text" asp-for="Apellido" value="@Model.Apellido" placeholder="Ingresar Apellido" /><br />
+        <span asp-validation-for="Apellido"></span>
+    </div>
+    <div>
+        <input type="email" asp-for="Correo" value="@Model.Correo" placeholder="Ingresar Correo" /><br />
+        <span asp-validation-for="Correo"></span>
+    </div>
+    <input type="password" asp-for="Contraseña" placeholder="Ingresar nueva contraseña" /><br />
+    <span asp-validation-for="Contraseña"></span>
+
+
+    <div>
+        <!-- Mostrar la imagen actual si existe -->
+        @if (Model.Imagen != null && Model.Imagen.Length > 0)
+        {
+            <img src="data:image/png;base64,@Convert.ToBase64String(Model.Imagen)" alt="Imagen de usuario" style="max-width: 200px; max-height: 200px;" />
+        }
+        else
+        {
+            <p>No se ha cargado ninguna imagen aún.</p>
+        }
+
+        <!-- Campo para cargar una nueva imagen -->
+        <input type="file" asp-for="ImagenFile" /><br />
+        <span asp-validation-for="ImagenFile"></span>
+    </div>
+
+    <div>
+        <select asp-for="Genero">
+            <option value="">Seleccionar Género</option>
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+        </select><br />
+        <span asp-validation-for="Genero"></span>
+    </div>
+    <div>
+        <input type="tel" asp-for="Telefono" value="@Model.Telefono" placeholder="Ingresar Teléfono" /><br />
+        <span asp-validation-for="Telefono"></span>
+    </div>
+    <div>
+        <input type="text" asp-for="Direccion" value="@Model.Direccion" placeholder="Ingresar Dirección" /><br />
+        <span asp-validation-for="Direccion"></span>
+    </div>
+    <div>
+        <input type="date" asp-for="FechaNacimiento" value="@Model.FechaNacimiento?.ToString("yyyy-MM-dd")" placeholder="Fecha Nacimiento" /><br />
+        <span asp-validation-for="FechaNacimiento"></span>
+    </div>
+    <div>
+        <textarea asp-for="Preferencias" placeholder="Ingresar Preferencias">@Model.Preferencias</textarea><br />
+        <span asp-validation-for="Preferencias"></span>
+    </div>
+    <div>
+        <select asp-for="EstadoCivil">
+            <option value="">Seleccionar Estado Civil</option>
+            <option value="S">Soltero</option>
+            <option value="C">Casado</option>
+            <option value="D">Divorciado</option>
+            <option value="V">Viudo</option>
+        </select><br />
+        <span asp-validation-for="EstadoCivil"></span>
+    </div>
+    <div>
+        <input type="text" asp-for="RedesSociales" value="@Model.RedesSociales" placeholder="Ingresar Redes Sociales" /><br />
+        <span asp-validation-for="RedesSociales"></span>
+    </div>
+    <div>
+        <input type="text" asp-for="Idioma" value="@Model.Idioma" placeholder="Ingresar Idioma" /><br />
+        <span asp-validation-for="Idioma"></span>
+    </div>
+    <div>
+        <input type="text" asp-for="Ocupacion" value="@Model.Ocupacion" placeholder="Ingresar Ocupación" /><br />
+        <span asp-validation-for="Ocupacion"></span>
+    </div>
+    <div>
+        <textarea asp-for="NotasAdicionales" placeholder="Notas Adicionales">@Model.NotasAdicionales</textarea><br />
+        <span asp-validation-for="NotasAdicionales"></span>
+    </div>
+    <div>
+        <input type="datetime-local" asp-for="FechaUltimaActualizacion"
+               value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" readonly /><br />
+        <span asp-validation-for="FechaUltimaActualizacion"></span>
+    </div>
+
+    <button type="submit">Actualizar Datos</button>
+</form>
+
+
+@if (ViewData.ModelState.ContainsKey("Error"))
+{
+    <div>
+        @ViewData.ModelState["Error"].Errors.FirstOrDefault()?.ErrorMessage
+    </div>
+}

@@ -1,0 +1,141 @@
+/****************************************************************************************/
+/*********************************** IMPORTAR FUENTES ***********************************/
+/****************************************************************************************/
+@import url("https://fonts.googleapis.com/css2?family=Nosifer&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nosifer&display=swap");
+
+/****************************************************************************************/
+/************************************* RESET GLOBAL *************************************/
+/****************************************************************************************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/****************************************************************************************/
+/************************************* FORMATO BODY *************************************/
+/****************************************************************************************/
+body {
+    font-family: "Montserrat", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/****************************************************************************************/
+/*************************** DIMENCIONES DE PANTALLA GLOBALES ***************************/
+/****************************************************************************************/
+.render_view {
+    min-width: calc(100% - 0%);
+    max-width: calc(100% - 0%);
+    overflow-x: auto;
+    min-height: calc(100vh - 14vh);
+    max-height: auto;
+    overflow-y: auto;
+    padding: 0px 5px;
+}
+
+
+/****************************************************************************************/
+/*********************************** COLORES GLOBALES ***********************************/
+/****************************************************************************************/
+:root {
+    /****************** NEGRO ******************/
+    --background-negro-profundo: #000000;
+    --background-negro-90: rgba(0, 0, 0, 0.9);
+    --background-negro-80: rgba(0, 0, 0, 0.8);
+    --background-negro-70: rgba(0, 0, 0, 0.7);
+    --background-negro-60: rgba(0, 0, 0, 0.6);
+    --background-negro-50: rgba(0, 0, 0, 0.5);
+    --background-negro-40: rgba(0, 0, 0, 0.4);
+    --background-negro-30: rgba(0, 0, 0, 0.3);
+    --background-negro-20: rgba(0, 0, 0, 0.2);
+    --background-negro-10: rgba(0, 0, 0, 0.1);
+    --background-negro-transparente: rgba(0, 0, 0, 0);
+    --background-negro-gradient: linear-gradient(to right, var(--background-negro-profundo), var(--background-negro-90), var(--background-negro-70), var(--background-negro-50), var(--background-negro-30), var(--background-negro-10));
+    /****************** BLANCO ******************/
+    --background-blanco-profundo: #FFFFFF;
+    --background-blanco-90: rgba(255, 255, 255, 0.9);
+    --background-blanco-80: rgba(255, 255, 255, 0.8);
+    --background-blanco-70: rgba(255, 255, 255, 0.7);
+    --background-blanco-60: rgba(255, 255, 255, 0.6);
+    --background-blanco-50: rgba(255, 255, 255, 0.5);
+    --background-blanco-40: rgba(255, 255, 255, 0.4);
+    --background-blanco-30: rgba(255, 255, 255, 0.3);
+    --background-blanco-20: rgba(255, 255, 255, 0.2);
+    --background-blanco-10: rgba(255, 255, 255, 0.1);
+    --background-blanco-5: rgba(255, 255, 255, 0.05);
+    --background-blanco-transparente: rgba(255, 255, 255, 0);
+    --background-blanco-gradient: linear-gradient(to right, var(--background-blanco-profundo), var(--background-blanco-90), var(--background-blanco-70), var(--background-blanco-50), var(--background-blanco-30), var(--background-blanco-10));
+    /****************** ORO ******************/
+    --background-oro-profundo: #FFD700;
+    --background-oro-90: rgba(255, 215, 0, 0.9);
+    --background-oro-80: rgba(255, 215, 0, 0.8);
+    --background-oro-70: rgba(255, 215, 0, 0.7);
+    --background-oro-60: rgba(255, 215, 0, 0.6);
+    --background-oro-50: rgba(255, 215, 0, 0.5);
+    --background-oro-40: rgba(255, 215, 0, 0.4);
+    --background-oro-30: rgba(255, 215, 0, 0.3);
+    --background-oro-20: rgba(255, 215, 0, 0.2);
+    --background-oro-10: rgba(255, 215, 0, 0.1);
+    --background-oro-transparente: rgba(255, 215, 0, 0);
+    --background-oro-gradient: linear-gradient(to right, var(--background-oro-profundo), var(--background-oro-90), var(--background-oro-70), var(--background-oro-50), var(--background-oro-30), var(--background-oro-10));
+    /****************** GRISACEO ******************/
+    --background-grisaceo-profundo: #283747;
+    --background-grisaceo-90: rgba(40, 55, 71, 0.9);
+    --background-grisaceo-80: rgba(40, 55, 71, 0.8);
+    --background-grisaceo-70: rgba(40, 55, 71, 0.7);
+    --background-grisaceo-60: rgba(40, 55, 71, 0.6);
+    --background-grisaceo-50: rgba(40, 55, 71, 0.5);
+    --background-grisaceo-40: rgba(40, 55, 71, 0.4);
+    --background-grisaceo-30: rgba(40, 55, 71, 0.3);
+    --background-grisaceo-20: rgba(40, 55, 71, 0.2);
+    --background-grisaceo-10: rgba(40, 55, 71, 0.1);
+    --background-grisaceo-transparente: rgba(40, 55, 71, 0);
+    --background-grisaceo-gradient: linear-gradient(to right, var(--background-grisaceo-profundo), var(--background-grisaceo-90), var(--background-grisaceo-70), var(--background-grisaceo-50), var(--background-grisaceo-30), var(--background-grisaceo-10));
+    /****************** ERROR ******************/
+    --background-error-profundo: #FF0000;
+    --background-error-90: rgba(255, 0, 0, 0.9);
+    --background-error-80: rgba(255, 0, 0, 0.8);
+    --background-error-70: rgba(255, 0, 0, 0.7);
+    --background-error-60: rgba(255, 0, 0, 0.6);
+    --background-error-50: rgba(255, 0, 0, 0.5);
+    --background-error-40: rgba(255, 0, 0, 0.4);
+    --background-error-30: rgba(255, 0, 0, 0.3);
+    --background-error-20: rgba(255, 0, 0, 0.2);
+    --background-error-10: rgba(255, 0, 0, 0.1);
+    --background-error-transparente: rgba(255, 0, 0, 0);
+    --background-error-gradient: linear-gradient(to right, var(--background-error-profundo), var(--background-error-90), var(--background-error-70), var(--background-error-50), var(--background-error-30), var(--background-error-10));
+    /****************** TRUE ******************/
+    --background-true-profundo: #2BFF00;
+    --background-true-90: rgba(43, 255, 0, 0.9);
+    --background-true-80: rgba(43, 255, 0, 0.8);
+    --background-true-70: rgba(43, 255, 0, 0.7);
+    --background-true-60: rgba(43, 255, 0, 0.6);
+    --background-true-50: rgba(43, 255, 0, 0.5);
+    --background-true-40: rgba(43, 255, 0, 0.4);
+    --background-true-30: rgba(43, 255, 0, 0.3);
+    --background-true-20: rgba(43, 255, 0, 0.2);
+    --background-true-10: rgba(43, 255, 0, 0.1);
+    --background-true-transparente: rgba(43, 255, 0, 0);
+    --background-true-gradient: linear-gradient(to right, var(--background-true-profundo), var(--background-true-90), var(--background-true-70), var(--background-true-50), var(--background-true-30), var(--background-true-10));
+}
+
+/****************************************************************************************/
+/********************************* ESTILOS DE SCROLLBAR *********************************/
+/****************************************************************************************/
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background: var(--background-negro-30);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--background-negro-60);
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--background-negro-60);
+    }

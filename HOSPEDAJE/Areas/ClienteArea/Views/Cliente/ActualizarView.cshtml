@@ -1,0 +1,40 @@
+﻿@using HOSPEDAJE.Areas.ClienteArea.Payloads.EntidadesDTO
+@model DetalleClienteDTO
+@{
+    Layout = "~/Views/Shared/_DashboardTemplate.cshtml";
+    ViewData["Title"] = "Actualizar Cliente";
+}
+
+<h1>
+    @ViewData["Title"]
+</h1>
+<form asp-action="ActualizarProceso" method="post">
+    <div>
+        <input type="text" asp-for="Nombre" value="@Model.Nombre" placeholder="Ingresar Nombre" /><br />
+        <span asp-validation-for="Nombre"></span>
+    </div>
+    <div>
+        <input type="text" asp-for="Apellido" value="@Model.Apellido" placeholder="Ingersar Apellido" /><br />
+        <span asp-validation-for="Apellido"></span>
+    </div>
+    <div>
+        <input type="email" asp-for="Correo" value="@Model.Correo" placeholder="Ingersar Correo" /><br />
+        <span asp-validation-for="Correo"></span>
+    </div>
+    <div>
+        <input type="text" asp-for="Genero" value="@Model.Genero" placeholder="Ingersar Genero" /><br />
+        <span asp-validation-for="Genero"></span>
+    </div>
+    <div>
+        <input type="text" asp-for="Telefono" value="@Model.Telefono" placeholder="Ingersar Telefono" /><br />
+        <span asp-validation-for="Telefono"></span>
+    </div>
+    <button type="submit">Actualizar Cliente</button>
+</form>
+<!-- Mostrar errores de validación si existen -->
+@if (ViewData.ModelState.ContainsKey("Error"))
+{
+    <div>
+        @ViewData.ModelState["Error"].Errors.FirstOrDefault()?.ErrorMessage
+    </div>
+}

@@ -1,0 +1,28 @@
+﻿<header class="header">
+    <nav class="navbar">
+        <div class="navbar-left">
+            <div class="navbar-left-left">
+                <img src="~/imagen/Logo.png" alt="Logo" class="logo" />
+                <h1 class="titulo_empresa">Samanga</h1>
+            </div>
+            <div class="navbar-left-right">
+                <ul>
+                    <li><a asp-area="" asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="navbar-right">
+            <a asp-area="ClienteArea" asp-controller="Cliente" asp-action="LogoutView" class="perfil-user">
+                <span class="material-symbols-outlined">
+                    move_item
+                </span>
+            </a>
+            <a asp-area="ClienteArea" asp-controller="Cliente" asp-action="DetallesView" class="perfil-user">
+                <span class="material-symbols-outlined">
+                    account_circle
+                </span>
+            </a>
+            <p class="nombre-user">ID: @ViewBag.IdCliente - @ViewBag.NombreCliente @ViewBag.ApellidoCliente</p>
+        </div>
+    </nav>
+</header>

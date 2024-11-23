@@ -1,0 +1,62 @@
+﻿@using HOSPEDAJE.Areas.ListaEsperaArea.Payloads.EntidadesDTO
+@model ListaEsperaDTO
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<form asp-action="Editar" method="post">
+    <input type="hidden" asp-for="IdEspera" />
+    <div>
+        <label>Prioridad:</label>
+        <input type="text" asp-for="Prioridad" />
+        <span asp-validation-for="Prioridad"></span>
+    </div>
+    <div>
+        <label>Estado:</label>
+        <select asp-for="Estado">
+            <option value="E">ESPERA</option>
+            <option value="N">NOTIFICADO</option>
+        </select>
+        <span asp-validation-for="Estado"></span>
+    </div>
+    <div>
+        <label>Descripción:</label>
+        <input type="text" asp-for="Descripcion" />
+        <span asp-validation-for="Descripcion"></span>
+    </div>
+    <button type="submit">Guardar</button>
+</form>
+
+
+@* <form asp-action="Editar" method="post">
+    <input type="hidden" asp-for="IdEspera" />
+    <div>
+        <label>Prioridad:</label>
+        <input type="text" asp-for="Prioridad" />
+        <span asp-validation-for="Prioridad"></span>
+    </div>
+    <div>
+        <label>Estado:</label>
+        <input type="text" asp-for="Estado" />
+        <span asp-validation-for="Estado"></span>
+    </div>
+    <div>
+        <label>Descripción:</label>
+        <input type="text" asp-for="Descripcion" />
+        <span asp-validation-for="Descripcion"></span>
+    </div>
+    <button type="submit">Guardar</button>
+</form> *@
+
+

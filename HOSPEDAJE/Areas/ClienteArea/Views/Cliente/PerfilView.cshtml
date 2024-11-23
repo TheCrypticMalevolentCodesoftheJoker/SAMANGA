@@ -1,0 +1,26 @@
+﻿@using HOSPEDAJE.Areas.ClienteArea.Payloads.EntidadesDTO
+@model DetalleClienteDTO
+@{
+    Layout = "~/Views/Shared/_DashboardTemplate.cshtml";
+    ViewData["Title"] = "Detalle Cliente";
+}
+
+<h1>
+    @ViewData["Title"]
+</h1>
+
+<nav>
+    <ul>
+        <li><a asp-area="ClienteArea" asp-controller="Cliente" asp-action="ActualizarView">Actualizar Cliente</a></li>
+        <li><a asp-area="ClienteArea" asp-controller="Cliente" asp-action="EliminarView">Eliminar Cliente</a></li>
+    </ul>
+</nav>
+
+<p><strong>Nombre:</strong> @Model.Nombre</p>
+<p><strong>Telefono:</strong> @Model.Telefono</p>
+@if (ViewData.ModelState.ContainsKey("Error"))
+{
+    <div>
+        @ViewData.ModelState["Error"].Errors.FirstOrDefault()?.ErrorMessage
+    </div>
+}

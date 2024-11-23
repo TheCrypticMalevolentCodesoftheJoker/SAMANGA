@@ -1,0 +1,99 @@
+﻿.header {
+    background-color: var(--background-grisaceo-profundo);
+    width: 100%;
+    height: 7vh;
+    padding: 0px 5px;
+}
+
+    .header > nav.navbar {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .header > nav.navbar > .navbar-left {
+            width: calc(100% - 40%);
+            display: flex;
+            flex-direction: row;
+        }
+
+            .header > nav.navbar > .navbar-left > .navbar-left-left {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+                .header > nav.navbar > .navbar-left > .navbar-left-left > .logo {
+                    width: 6vh;
+                    height: 6vh;
+                }
+
+                .header > nav.navbar > .navbar-left > .navbar-left-left > .titulo_empresa {
+                    color: var(--background-oro-profundo);
+                    font-family: 'Nosifer';
+                    font-weight: normal;
+                    font-size: 20px;
+                }
+
+            .header > nav.navbar > .navbar-left > .navbar-left-right {
+                margin-left: 25px;
+                display: flex;
+                align-items: center;
+            }
+
+                .header > nav.navbar > .navbar-left > .navbar-left-right > ul {
+                    list-style: none;
+                    display: flex;
+                    gap: 10px;
+                }
+
+                    .header > nav.navbar > .navbar-left > .navbar-left-right > ul > li {
+                        display: inline-block;
+                    }
+
+                        .header > nav.navbar > .navbar-left > .navbar-left-right > ul > li > a {
+                            background: var(--background-blanco-5);
+                            text-transform: uppercase;
+                            display: block;
+                            cursor: pointer;
+                            text-decoration: none;
+                            padding: 6px 15px;
+                            border-radius: 5px;
+                            font-weight: 500;
+                            font-size: 15px;
+                            color: var(--background-blanco-profundo);
+                            letter-spacing: 1px;
+                        }
+
+                            .header > nav.navbar > .navbar-left > .navbar-left-right > ul > li > a:hover {
+                                background: var(--background-blanco-10);
+                            }
+
+        .header > nav.navbar > .navbar-right {
+            width: calc(40% - 0%);
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            gap: 10px;
+        }
+            .header > nav.navbar > .navbar-right > .perfil-user {
+                cursor: pointer;
+                text-decoration: none;
+                color: var(--background-blanco-profundo);
+            }
+                .header > nav.navbar > .navbar-right > .perfil-user:hover {
+                    color: var(--background-blanco-60);
+                }
+                .header > nav.navbar > .navbar-right > .perfil-user > .material-symbols-outlined {
+                    font-family: 'Material Symbols Outlined';
+                    font-size: 30px;
+                    vertical-align: middle;
+                }
+
+            .header > nav.navbar > .navbar-right > .nombre-user {
+                color: var(--background-blanco-profundo);
+                font-size: 15px;
+                letter-spacing: 1px;
+                text-transform: capitalize;
+            }

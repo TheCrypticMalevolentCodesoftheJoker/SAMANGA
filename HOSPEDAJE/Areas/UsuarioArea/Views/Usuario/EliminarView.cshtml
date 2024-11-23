@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Eliminar Cliente";
+}
+
+<h1>
+    @ViewData["Title"]
+</h1>
+<form asp-action="EliminarProceso" method="post">
+    <p>
+        ¿Seguro que quieres eliminar cuenta, @ViewBag.NombreUsuario @ViewBag.ApellidoUsuario?
+    </p>
+    <button type="submit">Eliminar</button>
+    <a href="javascript:history.back()">Cancelar</a>
+</form>

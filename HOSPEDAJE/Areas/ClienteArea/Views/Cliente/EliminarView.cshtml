@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_DashboardTemplate.cshtml";
+    ViewData["Title"] = "Eliminar Cliente";
+}
+
+<h1>
+    @ViewData["Title"]
+</h1>
+<form asp-action="EliminarProceso" method="post">
+    <p>
+        ¿Seguro que quieres eliminar cuenta, @ViewBag.NombreCliente @ViewBag.ApellidoCliente?
+    </p>
+    <button type="submit">Eliminar</button>
+    <a href="javascript:history.back()">Cancelar</a>
+</form>

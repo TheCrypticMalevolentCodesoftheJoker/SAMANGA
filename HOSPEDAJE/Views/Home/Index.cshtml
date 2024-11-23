@@ -1,0 +1,75 @@
+﻿@using HOSPEDAJE.Areas.HabitacionArea.Payloads.ViewModel
+@model HabitacionesCategoriasViewModel
+
+@{
+    Layout = "~/Views/Shared/_HomeTemplate.cshtml";
+    ViewData["Title"] = "Home";
+}
+
+<div>
+    <h2>Buscar habitación</h2>
+    <form asp-action="IndexProceso" method="post">
+        <div>
+            <label for="@Model.FormBuscarHDDTO.FechaEntrada">Fecha Entrada:</label>
+            <input type="date" asp-for="@Model.FormBuscarHDDTO.FechaEntrada"/>
+            <span asp-validation-for="@Model.FormBuscarHDDTO.FechaEntrada"></span>
+        </div>
+        <div>
+            <label for="@Model.FormBuscarHDDTO.FechaSalida">Fecha Salida:</label>
+            <input type="date" asp-for="@Model.FormBuscarHDDTO.FechaSalida" />
+            <span asp-validation-for="@Model.FormBuscarHDDTO.FechaSalida"></span>
+        </div>
+        <div>
+            <label for="@Model.FormBuscarHDDTO.IdCategoria">Categoría:</label>
+            <select asp-for="@Model.FormBuscarHDDTO.IdCategoria">
+                <option value="">Seleccionar categoría</option>
+                @foreach (var categoria in Model.Categorias.DTO)
+                {
+                    <option value="@categoria.IdCategoria">@categoria.Categoria</option>
+                }
+            </select>
+        </div>
+        <button type="submit">Buscar</button>
+    </form>
+
+    @if (!string.IsNullOrEmpty(ViewData["Error"]?.ToString()))
+    {
+        <div class="alert alert-danger mt-3">
+            @ViewData["Error"]
+        </div>
+    }
+    else
+    {
+        <h3>@Model.Habitaciones?.Descripcion</h3>
+        <section style="display: flex;">
+            @foreach (var habitacion in Model.Habitaciones.DTO)
+            {
+                <article style="background-color: darkred; margin: 10px; padding: 20px;">
+                    <aside>
+                        @if (!string.IsNullOrEmpty(habitacion.ImagenUrl))
+                        {
+                            <img src="@habitacion.ImagenUrl"/>
+                        }
+                    </aside>
+                    <h4>Habitación: @habitacion.Numero</h4>
+                    <p>Categoría: @habitacion.NombreCategoria</p>
+                    <p>Estado: @habitacion.NombreEstado</p>
+                    <p>Precio: @habitacion.Precio</p>
+                    <p>@habitacion.Descripcion</p>
+                    <form asp-area="HabitacionArea" asp-controller="Habitacion" asp-action="DetalleHabitacion" method="post">
+                        <input type="hidden" name="IdHabitacion" value="@habitacion.IdHabitacion" />
+                        <button type="submit">
+                            Ver detalle
+                        </button>
+                    </form>
+                    <form asp-area="ReservaArea" asp-controller="Reserva" asp-action="RegistrarView" method="post">
+                        <input type="hidden" name="IdHabitacion" value="@habitacion.IdHabitacion" />
+                        <button type="submit">
+                            Reservar
+                        </button>
+                    </form>
+                </article>
+            }
+        </section>
+    }
+</div>

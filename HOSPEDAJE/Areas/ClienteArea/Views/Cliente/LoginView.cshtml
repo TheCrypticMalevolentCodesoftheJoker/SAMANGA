@@ -1,0 +1,33 @@
+﻿@using HOSPEDAJE.Areas.ClienteArea.Payloads.EntidadesDTO
+@model LoginClienteDTO
+@{
+    Layout = "~/Views/Shared/_HomeTemplate.cshtml";
+    ViewData["Title"] = "Iniciar sesión";
+}
+
+<h1>
+    @ViewData["Title"]
+</h1>
+<partial name="../Component/_Account" />
+
+<form asp-action="LoginProceso" method="post">
+    <div>
+        <input type="email" asp-for="Correo" placeholder="Correo" />
+        <span asp-validation-for="Correo"></span>
+    </div>
+
+    <div>
+        <input type="text" asp-for="Contraseña" placeholder="Contraseña" />
+        <span asp-validation-for="Contraseña"></span>
+    </div>
+
+    <button type="submit">Iniciar sesion</button>
+</form>
+<!-- Mostrar errores de validación si existen -->
+@if (ViewData.ModelState.ContainsKey("Error"))
+{
+    <div>
+        @ViewData.ModelState["Error"].Errors.FirstOrDefault()?.ErrorMessage
+    </div>
+}
+<a asp-area="ClienteArea" asp-controller="Cliente" asp-action="RegistrarView">Registrar Cliente</a>

@@ -1,0 +1,106 @@
+﻿@using HOSPEDAJE.Areas.UsuarioArea.Payloads.EntidadesDTO
+@model DetalleUsuarioDTO
+
+@{
+    ViewData["Title"] = "Perfil Usuario";
+}
+
+<h1>
+    @ViewData["Title"]
+</h1>
+
+@if (Model.Imagen != null && Model.Imagen.Length > 0)
+{
+    string base64Image = Convert.ToBase64String(Model.Imagen);
+    string imgSrc = $"data:image/jpeg;base64,{base64Image}";
+    <img src="@imgSrc" alt="Imagen del usuario" />
+}
+else
+{
+    <p>No hay imagen disponible.</p>
+}
+<table border="1">
+    <tr>
+        <th>Id Usuario</th>
+        <td>@Model.IdUsuario</td>
+    </tr>
+    <tr>
+        <th>Id Rol</th>
+        <td>@Model.IdRol</td>
+    </tr>
+    <tr>
+        <th>Nombre</th>
+        <td>@Model.Nombre</td>
+    </tr>
+    <tr>
+        <th>Apellido</th>
+        <td>@Model.Apellido</td>
+    </tr>
+    <tr>
+        <th>Correo</th>
+        <td>@Model.Correo</td>
+    </tr>
+    <tr>
+        <th>Estado</th>
+        <td>@Model.Estado</td>
+    </tr>
+</table>
+<table border="1">
+    <tr>
+        <th>Fecha Contratacion</th>
+        <td>@Model.FechaContratacion</td>
+    </tr>
+    <tr>
+        <th>Genero</th>
+        <td>@Model.Genero</td>
+    </tr>
+    <tr>
+        <th>Telefono</th>
+        <td>@Model.Telefono</td>
+    </tr>
+    <tr>
+        <th>Direccion</th>
+        <td>@Model.Direccion</td>
+    </tr>
+    <tr>
+        <th>FechaNacimiento</th>
+        <td>@Model.FechaNacimiento</td>
+    </tr>
+    <tr>
+        <th>Preferencias</th>
+        <td>@Model.Preferencias</td>
+    </tr>
+    <tr>
+        <th>Estado Civil</th>
+        <td>@Model.EstadoCivil</td>
+    </tr>
+    <tr>
+        <th>Redes Sociales</th>
+        <td>@Model.RedesSociales</td>
+    </tr>
+    <tr>
+        <th>Idioma</th>
+        <td>@Model.Idioma</td>
+    </tr>
+    <tr>
+        <th>Ocupacion</th>
+        <td>@Model.Ocupacion</td>
+    </tr>
+    <tr>
+        <th>Notas Adicionales</th>
+        <td>@Model.NotasAdicionales</td>
+    </tr>
+    <tr>
+        <th>Ultima Actualizacion</th>
+        <td>@Model.FechaUltimaActualizacion</td>
+    </tr>
+</table>
+
+<a asp-area="UsuarioArea" asp-controller="Usuario" asp-action="ActualizarView">Actualizar Datos</a>
+<a asp-area="UsuarioArea" asp-controller="Usuario" asp-action="EliminarView">Eliminar Cuenta</a>
+@if (ViewData.ModelState.ContainsKey("Error"))
+{
+    <div>
+        @ViewData.ModelState["Error"].Errors.FirstOrDefault()?.ErrorMessage
+    </div>
+}

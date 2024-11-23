@@ -1,0 +1,96 @@
+﻿@using HOSPEDAJE.Areas.ReservaArea.Payloads.ViewModel
+@model ReservaViewModel
+
+@{
+    ViewData["Title"] = "Registrar Reserva";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="RegistrarProceso" method="post">
+    <div>
+        <label>Correo para confirmacion</label>
+        <input type="text" asp-for="ReservaDTO.Correo" placeholder="correo" required />
+        <span asp-validation-for="ReservaDTO.Correo"></span>
+    </div>
+    <!-- Datos de la Reserva -->
+    <h3>Datos de la Reserva</h3>
+    <div>
+        <label>Id Cliente</label>
+        <input type="number" asp-for="ReservaDTO.IdCliente" value="@ViewBag.IdCliente" />
+        <span asp-validation-for="ReservaDTO.IdCliente" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Fecha Entrada</label>
+        <input type="date" asp-for="ReservaDTO.FechaEntrada" required />
+        <span asp-validation-for="ReservaDTO.FechaEntrada" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Fecha Salida</label>
+        <input type="date" asp-for="ReservaDTO.FechaSalida" required />
+        <span asp-validation-for="ReservaDTO.FechaSalida" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Estado</label>
+        <select asp-for="ReservaDTO.Estado" required>
+            <option value="A">Activo</option>
+            <option value="I">Inactivo</option>
+        </select>
+        <span asp-validation-for="ReservaDTO.Estado" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Total Pago</label>
+        <input type="number" asp-for="ReservaDTO.TotalPago" step="0.01" required />
+        <span asp-validation-for="ReservaDTO.TotalPago" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Método de Pago</label>
+        <select asp-for="ReservaDTO.MetodoPago" class="form-control" required>
+            <option value="" disabled selected>Seleccione un método de pago</option>
+            <option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
+            <option value="Tarjeta de Débito">Tarjeta de Débito</option>
+            <option value="Efectivo">Efectivo</option>
+            <option value="Transferencia Bancaria">Transferencia Bancaria</option>
+        </select>
+        <span asp-validation-for="ReservaDTO.MetodoPago" class="text-danger"></span>
+    </div>
+
+
+    <!-- Detalle de la Reserva -->
+    <h3>Detalle de la Reserva</h3>
+    <div>
+        <label>Id Habitación</label>
+        <input type="number" asp-for="DetalleReservaDTO.IdHabitacion" value="@ViewBag.IdHabitacion" />
+        <span asp-validation-for="DetalleReservaDTO.IdHabitacion" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Cantidad de Personas</label>
+        <input type="number" asp-for="DetalleReservaDTO.CantidadPersonas" required />
+        <span asp-validation-for="DetalleReservaDTO.CantidadPersonas" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Tipo de Servicio</label>
+        <input type="text" asp-for="DetalleReservaDTO.TipoServicio" placeholder="Tipo de Servicio" />
+        <span asp-validation-for="DetalleReservaDTO.TipoServicio" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Costo del Servicio</label>
+        <input type="number" asp-for="DetalleReservaDTO.CostoServicio" step="0.01" />
+        <span asp-validation-for="DetalleReservaDTO.CostoServicio" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Pago Parcial</label>
+        <input type="number" asp-for="DetalleReservaDTO.PagoParcial" step="0.01" />
+        <span asp-validation-for="DetalleReservaDTO.PagoParcial" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Estado del Pago</label>
+        <input type="text" asp-for="DetalleReservaDTO.EstadoPago" placeholder="Estado del Pago" required />
+        <span asp-validation-for="DetalleReservaDTO.EstadoPago" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Reservar</button>
+</form>
+<div class="alert alert-danger">
+    @ViewData["Error"]
+</div>

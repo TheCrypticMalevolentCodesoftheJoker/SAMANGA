@@ -1,0 +1,65 @@
+﻿@using HOSPEDAJE.Areas.HabitacionArea.Payloads.MensajesDTO
+@using HOSPEDAJE.Areas.HabitacionArea.Payloads.EntidadesDTO
+@model MensajePersonalizado3DTO<HabitacionDTO, DetalleHabitacionDTO, List<ImagenHabitacionDTO>>
+
+@{
+    ViewData["Title"] = "Detalle de Habitación";
+}
+
+<h2>Imágenes de la Habitación</h2>
+
+<div class="row">
+    @if (Model.DTO3 != null)
+    {
+        foreach (var imagen in Model.DTO3)
+        {
+            <div class="col-md-4">
+                <img src="@imagen.UrlImagen" />
+            </div>
+        }
+    }
+</div>
+
+<h2>Detalles de la Habitación</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Campo</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.DTO1 != null)
+        {
+            <tr>
+                <td>Número</td>
+                <td>@Model.DTO1.Numero</td>
+            </tr>
+            <tr>
+                <td>Categoría</td>
+                <td>@Model.DTO1.NombreCategoria</td>
+            </tr>
+            <tr>
+                <td>Estado</td>
+                <td>@Model.DTO1.NombreEstado</td>
+            </tr>
+            <tr>
+                <td>Precio</td>
+                <td>@Model.DTO1.Precio</td>
+            </tr>
+        }
+        @if (Model.DTO2 != null)
+        {
+            <tr>
+                <td>Vistas</td>
+                <td>@Model.DTO2.Vistas</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="alert alert-danger">
+    @ViewData["Error"]
+</div>
+<a asp-area="" asp-controller="Home" asp-action="Index">Volver</a>

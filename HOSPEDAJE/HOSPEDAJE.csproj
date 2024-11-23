@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="MailKit" Version="4.8.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\Component\_Header.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\HabitacionArea\Payloads\FluentDTO\" />
+    <Folder Include="Areas\ReporteProblemaArea\Payloads\EntidadesDTO\" />
+    <Folder Include="Areas\ReporteProblemaArea\Payloads\FluentDTO\" />
+    <Folder Include="Areas\ReporteProblemaArea\Payloads\MensajesDTO\" />
+    <Folder Include="Areas\ReporteProblemaArea\Services\MicroServices\" />
+    <Folder Include="Areas\ReporteProblemaArea\Repository\" />
+    <Folder Include="Areas\ReporteProblemaArea\Views\ReporteProblema\" />
+    <Folder Include="Areas\ReservaArea\Payloads\FluentDTO\" />
+  </ItemGroup>
+
+</Project>

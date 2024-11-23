@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_DashboardTemplate.cshtml";
+    ViewData["Title"] = "Cerrar sesion Cliente";
+}
+
+<h1>
+    @ViewData["Title"]
+</h1>
+<form asp-action="LogoutProceso" method="post">
+    <p>
+        ¿Seguro que quiere cerrar sesión, @ViewBag.NombreCliente @ViewBag.ApellidoCliente?
+    </p>
+    <button type="submit">Aceptar</button>
+    <a href="javascript:history.back()">Cancelar</a>
+</form>

@@ -1,0 +1,48 @@
+﻿@using HOSPEDAJE.Areas.ListaEsperaArea.Payloads.EntidadesDTO
+@model ListaEsperaDTO
+
+@{
+    Layout = "~/Views/Shared/_HomeTemplate.cshtml";
+    ViewData["Title"] = "Registrar Lista Espera";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<!-- Mensajes de Éxito o Error -->
+
+<!-- Formulario -->
+
+<form asp-action="RegistrarListaEsperaProceso" method="post">
+    <div>
+        <label for="IdCliente">Id Cliente</label>
+        <input type="number" asp-for="IdCliente" placeholder="IdCliente" />
+        <span asp-validation-for="IdCliente" class="text-danger"></span>
+    </div>
+    <div>
+        <label for="Prioridad">Prioridad</label>
+        <select asp-for="Prioridad">
+            <option value="">Seleccionar</option>
+            <option value="A">Alta</option>
+            <option value="M">Media</option>
+            <option value="B">Baja</option>
+        </select>
+        <span asp-validation-for="Prioridad" class="text-danger"></span>
+    </div>
+    <div>
+        <label for="Descripcion">Descripción</label> 
+        <br />
+        <textarea cols="50" rows="10" asp-for="Descripcion" placeholder="Descripcion">
+
+        </textarea>
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar</button>
+</form>
+
+<div>
+    @ViewData["Error"]
+</div>
+
+
+
+
